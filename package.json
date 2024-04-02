@@ -6,6 +6,10 @@
   "repository": "git@github.com:mydatahack/hardhat-learning-project-1.git",
   "author": "mydatahack <thon6thon6@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "compile": "yarn hardhat compile",
+    "test": "yarn hardhat test"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
     "@nomicfoundation/hardhat-ethers": "^3.0.0",
