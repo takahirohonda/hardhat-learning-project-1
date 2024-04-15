@@ -6,10 +6,17 @@ import "hardhat/console.sol";
 
 contract Counter {
   uint private counter;
-  function count() public returns (uint) {
+  // This doesn't work. We need write and read separate
+  // You cannot read with write function because it takes time to transaction to complete.
+  // function count() public returns (uint) {
+  //   counter++;
+  //   console.log('counter', counter);
+  //   return counter;
+  // }
+
+  function count() public {
     counter++;
-    console.log('counter', counter);
-    return counter;
+    console.log('counter is now: ', counter);
   }
 
   function getCounter () public view returns (uint) {

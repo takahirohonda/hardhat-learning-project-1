@@ -40,6 +40,9 @@ const incrementCounter = async () => {
     const provider = new ethers.BrowserProvider(window.ethereum);
 
     if (counter) {
+        // Note that to reference a contract, we use (1) Address and (2) Interface.
+        // We can get the code, but to interact with a contract,
+        // we just use and address and interface.
         const contract = new ethers.Contract(
             counter,
             [
@@ -52,7 +55,6 @@ const incrementCounter = async () => {
     }
     
 }
-
 
 getContract();
 incrementCounter();

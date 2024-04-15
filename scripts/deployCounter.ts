@@ -10,6 +10,7 @@ const deployCounter = async () => {
 }
 
 const getCounter = async (counter: Counter) => {
+  await counter.count()
   console.log("Counter deployed with: ", await counter.getCounter())
 }
 
