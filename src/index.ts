@@ -12,7 +12,7 @@ async function requestAccess(): Promise<boolean> {
 }
 
 async function getContract() {
-    const address = process.env.CONTRACT_ADDRESS as string;
+    const address = process.env.HELLO_WORLD_CONTRACT_ADDRESS as string;
 
     if (!(await hasSigners()) && !(await requestAccess())) {
         console.log("You are in trouble, no one wants to play");
@@ -31,5 +31,28 @@ async function getContract() {
     console.log(await contract.hello());
 }
 
+const incrementCounter = async () => {
+    const counter = process.env.COUNTER_CONTRACT_ADDRESS
+    if (!(await hasSigners()) && !(await requestAccess())) {
+        console.log("You are in trouble, no one wants to play");
+    }
+
+    const provider = new ethers.BrowserProvider(window.ethereum);
+
+    if (counter) {
+        const contract = new ethers.Contract(
+            counter,
+            [
+                "function count() public returns (uint)",
+            ],
+            provider
+        )
+        console.log(await contract.count());
+        return await contract.getCounter()
+    }
+    
+}
+
 
 getContract();
+incrementCounter();

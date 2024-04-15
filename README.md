@@ -6,6 +6,7 @@
 # deploy Hello contract to the local host network
 yarn hardhat node
 yarn hardhat run scripts/deployHello.ts --network localhost
+yarn hardhat run scripts/deployCounter.ts --network localhost
 ```
 
 Then we can get the CONTRACT_ADDRESS that should be in `.env`:
@@ -44,3 +45,13 @@ provider = new ethers.providers.Web3Provider(window.ethereum);
 // v6:
 provider = new ethers.BrowserProvider(window.ethereum);
 ```
+
+## Reference
+
+### 1. Terms
+
+[JSON-RPC](https://www.jsonrpc.org/specification)
+[Metamask JSON-PPC API List](https://docs.metamask.io/wallet/reference/json-rpc-api/)
+[React with Metamask](https://docs.metamask.io/wallet/tutorials/react-dapp-local-state/)
+
+[Signed and Unsigned Integer](https://www.ibm.com/docs/en/aix/7.2?topic=types-signed-unsigned-integers) - The XDR standard defines signed integers as integer. A signed integer is a 32-bit datum that encodes an integer in the range [-2147483648 to 2147483647]. An unsigned integer is a 32-bit datum that encodes a non-negative integer in the range [0 to 4294967295].
