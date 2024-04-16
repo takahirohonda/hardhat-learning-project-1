@@ -19,7 +19,10 @@ contract Counter {
     console.log('counter is now: ', counter);
   }
 
-  function getCounter () public view returns (uint) {
+  // unit is big number in js, unit 32 is just treated by a regular number in js.
+  function getCounter() public view returns (uint) {
     return counter;
+    // can cast but you'll run into a danger of overflow.
+    // return unit32(counter); 
   }
 }

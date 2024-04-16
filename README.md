@@ -55,3 +55,35 @@ provider = new ethers.BrowserProvider(window.ethereum);
 [React with Metamask](https://docs.metamask.io/wallet/tutorials/react-dapp-local-state/)
 
 [Signed and Unsigned Integer](https://www.ibm.com/docs/en/aix/7.2?topic=types-signed-unsigned-integers) - The XDR standard defines signed integers as integer. A signed integer is a 32-bit datum that encodes an integer in the range [-2147483648 to 2147483647]. An unsigned integer is a 32-bit datum that encodes a non-negative integer in the range [0 to 4294967295].
+
+### 2. Troubleshooting
+
+```
+contract runner does not support sending transactions (operation="sendTransaction", code=UNSUPPORTED_OPERATION, version=6.11.1)
+```
+
+**Solution**
+
+The 3rd argument is signer. It's not the provider. Singer can call transactions. Provider is enough for
+
+```js
+const provider = new ethers.BrowserProvider(window.ethereum);
+const signer = await provider.getSigner();
+
+const contract = new ethers.Contract(
+  contractAddress,
+  [
+    "function count() public",
+    "function getCounter() public view returns (uint)",
+  ],
+  signer
+);
+```
+
+And I misspelt uint as unit 😢 and had this error...
+
+```
+User
+contract.getCounter is not a function
+TypeError: contract.getCounter is not a function from this: import "hardhat/console.sol";
+```
