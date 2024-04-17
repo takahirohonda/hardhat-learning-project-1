@@ -4,9 +4,12 @@ import "hardhat-gas-reporter"
 
 const config: HardhatUserConfig = {
   solidity: "0.8.24",
+  gasReporter: {
+    enabled: (process.env.REPORT_GAS) ? true : false
+  },
   networks: {
     hardhat: {
-      chainId: 31337, 
+      chainId: 31337, // it's the default chain id, doesn't need to add it.
     }
   }
 };
