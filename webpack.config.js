@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-    entry: "./src/index.ts", // bundle"s entry point
+    entry: "./src-vanilla-js/index.ts", // bundle"s entry point
     output: {
         path: path.resolve(__dirname, "dist"), // output directory
         filename: "[name].js", // name of the generated bundle
@@ -33,7 +33,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./src-vanilla-js/index.html",
             inject: "body",
         }),
         new webpack.DefinePlugin({
