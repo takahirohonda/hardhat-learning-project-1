@@ -152,6 +152,7 @@ node_modules
 
 # compiled output
 dist
+webpack-dist
 tmp
 /out-tsc
 

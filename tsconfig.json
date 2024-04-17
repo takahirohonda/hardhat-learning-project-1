@@ -23,7 +23,7 @@
     "types": ["vite/client", "vitest"]
   },
   "files": [],
-  "include": ["/src", "/src-vanilla-js"],
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
