@@ -1,5 +1,7 @@
 import { ethers } from "ethers";
 
+import Counter from '../artifacts/contracts/Counter.sol/Counter.json'
+
 async function hasSigners(): Promise<boolean> {
     const metamask = window.ethereum;
     const signers = await (metamask.request({method: 'eth_accounts'}) as Promise<string[]>);
@@ -47,24 +49,36 @@ const incrementCounter = async () => {
         // Note that to reference a contract, we use (1) Address and (2) Interface.
         // We can get the code, but to interact with a contract,
         // we just use and address and interface.
-        const contract = new ethers.Contract(
+        const counterContract = new ethers.Contract(
             contractAddress,
-            [
-                "function count() public",
-                "function getCounter() public view returns (uint)",
-            ],
+            // [
+            //     "function count() public",
+            //     "function getCounter() public view returns (uint)",
+            //     "event IncrementCounter(uint counter)"
+            // ],
+            // The Contract Application Binary Interface (ABI) can be imported
+            Counter.abi,
+
             signer
         )
-
+        //console.log(`checking ABI: ${JSON.stringify(Counter.abi)}`)
+      
         const button = document.createElement('button')
         const btnText = document.createTextNode('Increment count')
         button.appendChild(btnText)
         button.onclick = async () => {
-            await contract.count()
-            const counterOutput = await contract.getCounter()
-            createCounterElement(counterOutput)
-
+            await counterContract.count()
+            // If we make contract to emit event, we don't need to call getCounter and wait
+            // const counterOutput = await counterContract.getCounter()
+            // createCounterElement(counterOutput)
         }
+
+        // Listening to the event.
+        counterContract.on(counterContract.filters.IncrementCounter(), (event) => {
+            console.log(`envet emitted: ${event.args.counter}`)
+       
+            createCounterElement(event.args.counter)
+        })
         document.querySelector('.counter-display')?.appendChild(button)
     }
     

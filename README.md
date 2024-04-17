@@ -22,6 +22,10 @@ eth_sendTransaction
   Block #1:            0x1b2e57fc32e8bb34d1d0c061542760a91dc920cf02512b22fff02b92877aad15
 ```
 
+## Configuring Metamask wallet
+
+<img src="docs/local-network-config.png" />
+
 ## Setting up the project.
 
 Followed this tutorial: https://hardhat.org/tutorial/creating-a-new-hardhat-project
@@ -32,6 +36,12 @@ Writing contract: https://hardhat.org/tutorial/writing-and-compiling-contracts
 
 ```bash
 yarn add -D webpack webpack-cli ts-loader html-webpack-plugin dotenv
+```
+
+`hardhat-gas-reporter` is a nice module to measure how much gas is needed for function executions. This is used in the test.
+
+```bash
+yarn add -D hardhat-gas-reporter
 ```
 
 ## ether package is v6 in this project and the course uses v5
@@ -58,7 +68,7 @@ provider = new ethers.BrowserProvider(window.ethereum);
 
 ### 2. Troubleshooting
 
-```
+```bash
 contract runner does not support sending transactions (operation="sendTransaction", code=UNSUPPORTED_OPERATION, version=6.11.1)
 ```
 
@@ -86,4 +96,12 @@ And I misspelt uint as unit 😢 and had this error...
 User
 contract.getCounter is not a function
 TypeError: contract.getCounter is not a function from this: import "hardhat/console.sol";
+```
+
+### (2)
+
+I don't know what happened, but I imported a new account to the wallet and it worked.
+
+```bash
+could not coalesce error (error={ "code": -32603, "message": "Internal JSON-RPC error." })
 ```
