@@ -9,6 +9,8 @@
   "scripts": {
     "compile": "yarn hardhat compile",
     "test": "yarn hardhat test",
+    "test:gas-report": "export REPORT_GAS=true && yarn hardhat test",
+    "test-file": "yarn hardhat test --grep Hero",
     "dev": "yarn webpack-dev-server"
   },
   "devDependencies": {
