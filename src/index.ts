@@ -75,10 +75,10 @@ const incrementCounter = async () => {
 
         // Listening to the event.
         counterContract.on(counterContract.filters.IncrementCounter(), (event) => {
-            console.log(`envet emitted: ${event.args.counter}`)
-       
+            console.log(`event emitted: ${event.args.counter}`)
             createCounterElement(event.args.counter)
         })
+        
         document.querySelector('.counter-display')?.appendChild(button)
     }
     
