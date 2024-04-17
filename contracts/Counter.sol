@@ -14,9 +14,12 @@ contract Counter {
   //   return counter;
   // }
 
+  event IncrementCounter(uint counter);
+
   function count() public {
     counter++;
     console.log('counter is now: ', counter);
+    emit IncrementCounter(counter);
   }
 
   // unit is big number in js, unit 32 is just treated by a regular number in js.
