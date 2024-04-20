@@ -7,6 +7,7 @@
 yarn hardhat node
 yarn hardhat run scripts/deployHello.ts --network localhost
 yarn hardhat run scripts/deployCounter.ts --network localhost
+yarn hardhat run scripts/deployFallback.ts --network localhost
 
 # This will give you the size of the deployed bytecode in characters.-> do brew install jq on mac
 cat artifacts/contracts/Hero.sol/Hero.json | jq .deployedBytecode | wc
@@ -144,4 +145,21 @@ SyntaxError: Type expected. (69:8)
 function (a: number, b: number): boolean {
   return a & b === b;
 }
+```
+
+- delegate in JS
+
+```js
+class Foo {
+  private bar: number;
+  foo() { console.log('foo', this.bar) }
+}
+
+// undefined
+// 42
+const foo = new Foo()
+foo.foo()
+foo.foo.call({
+  bar: 42
+})
 ```
