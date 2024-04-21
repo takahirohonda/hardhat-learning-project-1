@@ -27,7 +27,7 @@ contract Gaming {
 
   constructor() payable {
     // This makes whoever deploys the game, own it.
-    owner = msg.sender;
+    owner = payable(msg.sender);
     online = true;
     players[0] = Player(msg.sender, 'Test Player', 0, 1, 2);
   }
@@ -41,7 +41,7 @@ contract Gaming {
     bool isWinner = determineWinner(mysteryNumber_, display, guess);
     if (isWinner == true) {
         /* Player won */
-        msg.sender.transfer(wager * 2);
+        payable(msg.sender).transfer(wager * 2);
         return true;
     } else if (isWinner == false) {
         /* Player lost */
@@ -52,7 +52,7 @@ contract Gaming {
 
   function mysteryNumber() internal view returns (uint) {
     uint randomNumber = uint(blockhash(block.number-1))%10 + 1;
-    return randomNumber
+    return randomNumber;
   }
 
   function determineWinner(uint number, uint display, bool guess) public pure returns(bool) {
