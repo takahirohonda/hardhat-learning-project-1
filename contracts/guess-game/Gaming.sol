@@ -47,6 +47,7 @@ contract Gaming {
         /* Player lost */
         return false;
     }
+    return false;
   
   }
 
