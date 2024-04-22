@@ -3,7 +3,7 @@
 import "@nomicfoundation/hardhat-toolbox"; // see https://hardhat.org/hardhat-runner/docs/advanced/migrating-from-hardhat-waffle
 
 import { ethers } from 'hardhat'
-import { HelloWorld } from "../typechain-types"
+import { HelloWorld } from "../../../typechain-types"
 
 const deploy = async () => {
   // When you call a getContractFactory("HelloWorld") it actually just loads the file from the json build file.

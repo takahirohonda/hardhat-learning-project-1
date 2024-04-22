@@ -8,7 +8,7 @@ const webpack = require("webpack");
 module.exports = {
     entry: "./src/index.ts", // bundle"s entry point
     output: {
-        path: path.resolve(__dirname, "dist"), // output directory
+        path: path.resolve(__dirname, "../../dist/vanilla-js-app"), // output directory
         filename: "[name].js", // name of the generated bundle
     },
     resolve: {
