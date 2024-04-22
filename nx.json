@@ -26,6 +26,13 @@
       }
     },
     {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build:webpack",
+        "serveTargetName": "serve:webpack"
+      }
+    },
+    {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
@@ -41,7 +48,6 @@
       }
     }
   ],
-  "defaultProject": "myreactapp",
   "generators": {
     "@nx/react": {
       "application": {

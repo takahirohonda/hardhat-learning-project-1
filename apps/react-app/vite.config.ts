@@ -25,13 +25,12 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: './dist/myreactapp',
+    outDir: './dist/react-app',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
     },
   },
-
   test: {
     globals: true,
     cache: {
