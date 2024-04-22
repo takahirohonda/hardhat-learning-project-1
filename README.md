@@ -5,9 +5,9 @@
 ```bash
 # deploy Hello contract to the local host network
 yarn hardhat node
-yarn hardhat run scripts/deployHello.ts --network localhost
-yarn hardhat run scripts/deployCounter.ts --network localhost
-yarn hardhat run scripts/deployFallback.ts --network localhost
+yarn hardhat run apps/ethereum-backend/scripts/deployHello.ts --network localhost
+yarn hardhat run apps/ethereum-backend/scripts/deployCounter.ts --network localhost --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json
+yarn hardhat run apps/ethereum-backend/scripts/scripts/deployFallback.ts --network localhost
 
 # This will give you the size of the deployed bytecode in characters.-> do brew install jq on mac
 cat artifacts/contracts/Hero.sol/Hero.json | jq .deployedBytecode | wc
@@ -89,8 +89,8 @@ const signer = await provider.getSigner();
 const contract = new ethers.Contract(
   contractAddress,
   [
-    "function count() public",
-    "function getCounter() public view returns (uint)",
+    'function count() public',
+    'function getCounter() public view returns (uint)',
   ],
   signer
 );

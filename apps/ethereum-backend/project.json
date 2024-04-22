@@ -9,7 +9,24 @@
       "options": {
         "script": "compile-nx-target-script"
       }
-
+    },
+    "test": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "test-nx-target-script"
+      }
+    },
+    "test-with-gas-report": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "test:gas-report-nx-target-script"
+      }
+    },
+    "hardhat:node": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "start-local-network-nx-target-script"
+      }
     }
   }
 }

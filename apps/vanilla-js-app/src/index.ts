@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 
-import Counter from '../../../artifacts/contracts/Counter.sol/Counter.json'
+import Counter from '../../ethereum-backend/artifacts/contracts/Counter.sol/Counter.json'
 
 async function hasSigners(): Promise<boolean> {
     const metamask = window.ethereum;
@@ -36,6 +36,8 @@ async function getContract() {
 
 const incrementCounter = async () => {
     const contractAddress = process.env.COUNTER_CONTRACT_ADDRESS
+
+    console.log(`Checking contract addressL ${contractAddress}`)
     if (!(await hasSigners()) && !(await requestAccess())) {
         console.log("You are in trouble, no one wants to play");
     }
