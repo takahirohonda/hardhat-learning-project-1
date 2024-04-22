@@ -15,7 +15,7 @@
     "test:gas-report-nx-target-script": "export REPORT_GAS=true && yarn hardhat test --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json",
     "start-local-network-nx-target-script": "yarn hardhat node --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json",
     "hardhat:node": "yarn nx run ethereum-backend:hardhat:node",
-    
+    "deploy-counter-contract": "yarn hardhat run apps/ethereum-backend/scripts/deployCounter.ts --network localhost --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json",
     "test-file": "yarn hardhat test --grep Hero --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json",
     "dev": "yarn webpack-dev-server",
     "start:react": "nx serve",
