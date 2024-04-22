@@ -1,6 +1,53 @@
 # Hardhat Learning Project 1
 
+## (1) Get started
+
+### 1-1. Starting Vanilla JS Project.
+
+```bash
+# Make sure to compile contracts first.
+yarn compile
+# Then, run test to make sure everything works
+yarn test
+
+# Start vanilla js app
+# (1) start local ethereum network.
+yarn hardhat:node
+# (2) open another terminal and deploy counter
+yarn deploy-counter-contract
+# (3) Get the Counter contract address and paste to `.env` file in the vanilla-js-app folder.
+# (4) Run the app (make sure that Metamask in installed and configured correctly).
+yarn dev:vanilla
+```
+
+### 1-2. Starting React project
+
+```bash
+yarn dev:react
+```
+
 ## Useful command
+
+**Nx**
+
+```bash
+# Reset the cache
+yan nx reset
+
+# Execute tasks with Nx
+yarn nx <target> <project> <...options>
+
+# Run many projects
+npx nx run-many -t <target1> <target2>
+
+# -p to filer specific projects
+npx nx run-many -t <target1> <target2> -p <proj1> <proj2>
+
+# Show the graph of the wrokspace
+npx nx graph
+```
+
+**HardHat**
 
 ```bash
 # deploy Hello contract to the local host network
