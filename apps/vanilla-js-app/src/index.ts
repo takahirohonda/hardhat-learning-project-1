@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 
-import Counter from '../artifacts/contracts/Counter.sol/Counter.json'
+import Counter from '../../../artifacts/contracts/Counter.sol/Counter.json'
 
 async function hasSigners(): Promise<boolean> {
     const metamask = window.ethereum;
