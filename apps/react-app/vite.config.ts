@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: './node_modules/.vite/.',
+  cacheDir: '../../node_modules/.vite/apps/react-apps',
 
   server: {
     port: 4200,
@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: './dist/react-app',
+    outDir: '../../dist/react-app',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
@@ -41,7 +41,7 @@ export default defineConfig({
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: './coverage/myreactapp',
+      reportsDirectory: './coverage/react-app',
       provider: 'v8',
     },
   },

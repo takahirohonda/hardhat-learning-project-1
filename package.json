@@ -7,14 +7,17 @@
   "author": "mydatahack <thon6thon6@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "yarn hardhat compile",
+    "compile": "yarn nx run ethereum-backend:compile",
+    "compile-nx-target-script": "yarn hardhat compile --config apps/ethereum-backend/hardhat.config.ts --tsconfig apps/ethereum-backend/tsconfig.json",
     "test": "yarn hardhat test",
     "test:gas-report": "export REPORT_GAS=true && yarn hardhat test",
     "test-file": "yarn hardhat test --grep Hero",
     "dev": "yarn webpack-dev-server",
     "start": "nx serve",
     "build": "nx build",
-    "test:react": "nx test"
+    "test:react": "nx test",
+    "nx-dev:vanilla": "nx run vanilla-js-app:serve:webpack",
+    "nx-dev:react": "nx run react-app:serve"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",

@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-    entry: "./src-vanilla-js/index.ts", // bundle"s entry point
+    entry: "./src/index.ts", // bundle"s entry point
     output: {
-        path: path.resolve(__dirname, "webpack-dist"), // output directory
+        path: path.resolve(__dirname, "../../dist/vanilla-js-app"), // output directory
         filename: "[name].js", // name of the generated bundle
     },
     resolve: {
@@ -23,9 +23,6 @@ module.exports = {
                 test: /\.ts$/,
                 loader: "ts-loader",
                 exclude: /node_modules/,
-                options: {
-                    configFile: "tsconfig.webpack.json"
-                }
             },
 
             {
@@ -36,7 +33,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src-vanilla-js/index.html",
+            template: "./src/index.html",
             inject: "body",
         }),
         new webpack.DefinePlugin({
