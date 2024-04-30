@@ -3,9 +3,16 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": ["*.spec.js"],
+      "files": ["./test/**/*.ts"],
       "rules": {
-          "no-unused-expressions": "off"
+        "overrides": [
+          {
+            "files": ["./ethereum-backend/test/*.ts"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+          }
+        ]
       }
     }
   ]
