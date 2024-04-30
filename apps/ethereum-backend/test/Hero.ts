@@ -39,4 +39,24 @@ describe('Hero', () => {
     expect(await contract.getHealth(createdHero)).to.equal(2);
   
   })
+
+  it ('should create heroes with createHero2 method', async () => {
+    const Contract = await ethers.getContractFactory("TestHero")
+    const contract = await Contract.deploy()
+
+    await contract.setRandom(100);
+    await contract.createHero2(
+      0,
+      { value: ethers.parseEther("0.05") }
+    )
+    
+    const createdHero = (await contract.getHeroes())[0];
+    console.log(createdHero)
+
+    expect(await contract.getStrength(createdHero)).to.equal(5);
+    expect(await contract.getHealth(createdHero)).to.equal(5);
+    expect(await contract.getDex(createdHero)).to.equal(5);
+    expect(await contract.getIntellect(createdHero)).to.equal(5);
+    expect(await contract.getMagic(createdHero)).to.equal(5);
+  })
 })

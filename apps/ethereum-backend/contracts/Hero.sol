@@ -133,16 +133,10 @@ contract Hero {
 
       // stats are [strenth, health, dexterity, intellect, magic]
       // starting with magic property creation and goes down the list in a reverse order.
-      hero |= value << stats[len - 1];
+      hero |= value << stats[len];
 
     } while (len > 0);
 
     addressToHeroes[msg.sender].push(hero); 
   }
 }
-
-/*
-*
-* [ S, H, D, I, M ]
-* randomNumber % (13 + len) + 1
-*/
