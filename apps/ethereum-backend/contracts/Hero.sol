@@ -74,23 +74,66 @@ contract Hero {
 
     // stats are strenth, health, dexterity, intellect, magic
     uint[] memory stats = new uint[](5);
-    stats[0] = 2;
-    stats[1] = 7;
-    stats[2] = 12;
-    stats[3] = 17;
-    stats[4] = 22;
+
+    // They represent the left shift
+    stats[0] = 2; // preserves first 2 bytes for the character type and create strength
+    stats[1] = 7; // preserves strength and create health -> first 5 bytes
+    stats[2] = 12; // preserves health and create dexterity -> second 5 bytes
+    stats[3] = 17; // preserves dexterity and create intellect -> 3rd 5 byts
+    stats[4] = 22; // preserves intellect and create magic-> 3rd 5 byts
 
     uint len = 5;
-    // casting hero to uint, 0, 1, 10, 11 100 (become bits)
+    // casting hero to uint, 00, 01, 10, 11, (become bits)
     uint hero = uint(getClassByIndex(index)); 
 
     do {
+      // 1st loop: modulo of 5 will give us 0, 1, 2, 3, 4
       uint pos = generateRandom() % len;
+
+      // 1st loop: modulo of 19 give us 0 ~ 18 random number
       uint value = generateRandom() % (13 + len) + 1;
 
+      // 1st loop, say hero is 00. and value is 2 (10). Pos = 1
+      // 0000 00 | 10 -> 10 0000000 
       hero |= value << stats[pos];
       len--;
+      // stats[1] = stats[4] (22) This eliminates the original 7 shift 
+      // and add the possiblity of 22 shift for the next bit
+      // this is for the condition: the stats are randomly picked and their amplitude is randomly determined according to the following:
       stats[pos] = stats[len];
+
+    } while (len > 0);
+
+    addressToHeroes[msg.sender].push(hero); 
+  }
+
+  // This function doesn't randomise the order of the character property creation
+  // It doesn't meet this condition: he stats are randomly picked and their amplitude is randomly determined according to the following:
+  // What about all the properties max out as 18.
+  function createHero2(uint index) public payable {
+    require(msg.value >= 0.05 ether, 'Please send more money');
+
+    // stats are [strenth, health, dexterity, intellect, magic]
+    uint[] memory stats = new uint[](5);
+
+    // They represent the left shift
+    stats[0] = 2; // preserves first 2 bytes for the character type and create strength
+    stats[1] = 7; // preserves strength and create health -> first 5 bytes
+    stats[2] = 12; // preserves health and create dexterity -> second 5 bytes
+    stats[3] = 17; // preserves dexterity and create intellect -> 3rd 5 byts
+    stats[4] = 22; // preserves intellect and create magic-> 3rd 5 byts
+
+    uint len = 5;
+    // casting hero to uint, 00, 01, 10, 11, (become bits)
+    uint hero = uint(getClassByIndex(index)); 
+
+    do {
+      len--;
+      uint value = generateRandom() % 19;
+
+      // stats are [strenth, health, dexterity, intellect, magic]
+      // starting with magic property creation and goes down the list in a reverse order.
+      hero |= value << stats[len - 1];
 
     } while (len > 0);
 
