@@ -11,7 +11,17 @@
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
-      "rules": {}
+      "rules": {
+        "overrides": [
+          {
+            "files": ["./ethereum-backend/**/*.spec.js"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+          }
+        ]
+      
+      }
     }
   ],
   "extends": ["plugin:@nx/react"]
