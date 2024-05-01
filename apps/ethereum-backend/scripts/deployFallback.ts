@@ -1,6 +1,6 @@
 import "@nomicfoundation/hardhat-toolbox";
 import { ethers } from 'hardhat'
-import { Fallback, IFallback } from '../../../typechain-types'
+import { Fallback, IFallback } from '../typechain-types'
 
 const deploy = async () => {
 

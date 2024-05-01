@@ -15,6 +15,9 @@ yarn test
 yarn hardhat:node
 # (2) open another terminal and deploy counter
 yarn deploy-counter-contract
+
+# deploy whatever contract I'm currently working on as defined in scripts
+yarn deploy-contract
 # (3) Get the Counter contract address and paste to `.env` file in the vanilla-js-app folder.
 # (4) Run the app (make sure that Metamask in installed and configured correctly).
 yarn dev:vanilla
@@ -116,97 +119,3 @@ provider = new ethers.BrowserProvider(window.ethereum);
 [React with Metamask](https://docs.metamask.io/wallet/tutorials/react-dapp-local-state/)
 
 [Signed and Unsigned Integer](https://www.ibm.com/docs/en/aix/7.2?topic=types-signed-unsigned-integers) - The XDR standard defines signed integers as integer. A signed integer is a 32-bit datum that encodes an integer in the range [-2147483648 to 2147483647]. An unsigned integer is a 32-bit datum that encodes a non-negative integer in the range [0 to 4294967295].
-
-### 2. Troubleshooting
-
-### 2-1. Missing Signer
-
-```bash
-contract runner does not support sending transactions (operation="sendTransaction", code=UNSUPPORTED_OPERATION, version=6.11.1)
-```
-
-**Solution**
-
-The 3rd argument is signer. It's not the provider. Singer can call transactions. Provider is enough for
-
-```js
-const provider = new ethers.BrowserProvider(window.ethereum);
-const signer = await provider.getSigner();
-
-const contract = new ethers.Contract(
-  contractAddress,
-  [
-    'function count() public',
-    'function getCounter() public view returns (uint)',
-  ],
-  signer
-);
-```
-
-And I misspelt uint as unit 😢 and had this error...
-
-```
-User
-contract.getCounter is not a function
-TypeError: contract.getCounter is not a function from this: import "hardhat/console.sol";
-```
-
-### 2-2. Internal JSON-RPC error
-
-I don't know what happened, but I imported a new account to the wallet and it worked.
-
-```bash
-could not coalesce error (error={ "code": -32603, "message": "Internal JSON-RPC error." })
-```
-
-### 2-3. cannot pass enum as a function argument in the contract
-
-```java
-enum Class { Mage, Healer, Barbarian }
-
-// this gives compilation error
-function createHero(Class class) public payable { ... }
-
-// the fix is just pass index and get the enum by using uint.
-function createHero(uint index) public payable {
-
-```
-
-```bash
-Generating typings for: 8 artifacts in dir: typechain-types for target: ethers-v6
-An unexpected error occurred:
-
-SyntaxError: Type expected. (69:8)
-  67 |
-  68 |     createHero: TypedContractMethod<
-> 69 |       [class: BigNumberish, ],
-     |        ^
-  70 |       [void],
-  71 |       'payable'
-  72 |     >
-```
-
-## Solidity
-
-```sol
-function (a: number, b: number): boolean {
-  return a & b === b;
-}
-```
-
-- delegate in JS
-
-```js
-class Foo {
-  private bar: number;
-  foo() { console.log('foo', this.bar) }
-}
-
-// undefined
-// 42
-const foo = new Foo()
-foo.foo()
-foo.foo.call({
-  bar: 42
-})
-```
