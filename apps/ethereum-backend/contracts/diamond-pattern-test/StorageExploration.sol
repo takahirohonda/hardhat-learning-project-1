@@ -14,6 +14,7 @@ contract A2 {
 }
 
 contract B2 {
+  // in ethereum, each variable takes up a 256 bytes memory slot if they are uint.
   uint b; // This takes up the entire 256 bytes (2 to the 256 - 1)
   uint8 c; // This is only 8 byte
   uint8 d;  // This is also 8 byte
