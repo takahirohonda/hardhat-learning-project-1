@@ -119,3 +119,23 @@ provider = new ethers.BrowserProvider(window.ethereum);
 [React with Metamask](https://docs.metamask.io/wallet/tutorials/react-dapp-local-state/)
 
 [Signed and Unsigned Integer](https://www.ibm.com/docs/en/aix/7.2?topic=types-signed-unsigned-integers) - The XDR standard defines signed integers as integer. A signed integer is a 32-bit datum that encodes an integer in the range [-2147483648 to 2147483647]. An unsigned integer is a 32-bit datum that encodes a non-negative integer in the range [0 to 4294967295].
+
+### Scripts for Nx
+
+Running code in `ethereum-intro`
+
+```json
+{
+  "compile": "yarn nx run ethereum-intro:compile",
+  "compile-nx-target-script": "yarn hardhat compile --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "test": "yarn nx run ethereum-intro:test",
+  "test-nx-target-script": "yarn hardhat test --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "test-with-gas-report": "yarn nx run ethereum-intro:test-with-gas-report",
+  "test:gas-report-nx-target-script": "export REPORT_GAS=true && yarn hardhat test --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "start-local-network-nx-target-script": "yarn hardhat node --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "hardhat:node": "yarn nx run ethereum-intro:hardhat:node",
+  "deploy-counter-contract": "yarn hardhat run apps/ethereum-intro/scripts/deployCounter.ts --network localhost --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "deploy-contract": "yarn hardhat run apps/ethereum-intro/scripts/deployUsingAppStorage.ts --network localhost --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
+  "test-file": "yarn hardhat test --grep Hero --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json"
+}
+```
