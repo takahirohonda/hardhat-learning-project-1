@@ -1,5 +1,5 @@
 {
-  "name": "guess-game",
+  "name": "crypto-zombies",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "",
@@ -7,19 +7,25 @@
     "compile": {
       "executor": "nx:run-script",
       "options": {
-        "script": "compile-guess-game"
+        "script": "compile-crypto-zombies"
       }
     },
     "test": {
       "executor": "nx:run-script",
       "options": {
-        "script": "test-guess-game"
+        "script": "test-crypto-zombies"
+      }
+    },
+    "test-with-gas-report": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "test:gas-report-crypto-zombies"
       }
     },
     "hardhat:node": {
       "executor": "nx:run-script",
       "options": {
-        "script": "start-local-network-guess-game"
+        "script": "start-local-network-crypto-zombies"
       }
     }
   }

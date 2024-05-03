@@ -1,0 +1,19 @@
+{
+  "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["./test/**/*.ts"],
+      "rules": {
+        "overrides": [
+          {
+            "files": ["./ethereum-backend/test/*.ts"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
