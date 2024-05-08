@@ -5,27 +5,27 @@
   "sourceRoot": "",
   "targets": {
     "compile": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "compile-crypto-zombies"
+        "command": "yarn hardhat compile --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat run apps/crypto-zombies/scripts/deployGaming.ts --network localhost --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json"
       }
     },
     "test": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "test-crypto-zombies"
-      }
-    },
-    "test-with-gas-report": {
-      "executor": "nx:run-script",
-      "options": {
-        "script": "test:gas-report-crypto-zombies"
+        "command": "yarn hardhat test --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json"
       }
     },
     "hardhat:node": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "start-local-network-crypto-zombies"
+        "command": "yarn hardhat node --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json"
       }
     }
   }

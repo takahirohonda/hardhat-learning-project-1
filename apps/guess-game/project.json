@@ -5,21 +5,27 @@
   "sourceRoot": "",
   "targets": {
     "compile": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "compile-guess-game"
+        "command": "yarn hardhat compile --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat run apps/guess-game/scripts/deployGaming.ts --network localhost --config apps/guess-game/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json"
       }
     },
     "test": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "test-guess-game"
+        "command": "yarn hardhat test --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json"
       }
     },
     "hardhat:node": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "start-local-network-guess-game"
+        "command": "yarn hardhat node --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json"
       }
     }
   }

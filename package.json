@@ -20,25 +20,13 @@
     "compile2": "yarn nx run guess-game:compile",
     "test2": "yarn nx run guess-game:test",
     "hardhat:node2": "yarn nx run guess-game:hardhat:node",
-    "deploy2": "yarn hardhat run apps/guess-game/scripts/deployUsingAppStorage.ts --network localhost --config apps/guess-game/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    
-    "compile-guess-game": "yarn hardhat compile --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json",
-    "test-guess-game": "yarn hardhat test --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json",
-    "start-local-network-guess-game": "yarn hardhat node --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json",
-    "test-file2": "yarn hardhat test --grep Hero --config apps/guess-game/hardhat.config.ts --tsconfig apps/guess-game/tsconfig.json",
+    "deploy2": "yarn nx run guess-game:deploy",
     
     "compile3": "yarn nx run ethereum-intro:compile",
     "test3": "yarn nx run ethereum-intro:test",
     "hardhat:node3": "yarn nx run ethereum-intro:hardhat:node",
-    "deploy3": "yarn hardhat run apps/ethereum-intro/scripts/deployUsingAppStorage.ts --network localhost --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    "test-file3": "yarn hardhat test --grep Hero --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    
-    "compile-nx-target-script": "yarn hardhat compile --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    "test-nx-target-script": "yarn hardhat test --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    "test-with-gas-report": "yarn nx run ethereum-intro:test-with-gas-report",
-    "test:gas-report-nx-target-script": "export REPORT_GAS=true && yarn hardhat test --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    "start-local-network-nx-target-script": "yarn hardhat node --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-  
+    "deploy3": "yarn nx run ethereum-intro:deploy",
+
     "dev": "yarn webpack-dev-server",
     "start:react": "nx serve",
     "build:react": "nx build",
