@@ -1,11 +1,11 @@
-import NxWelcome from './nx-welcome';
+import { TestDivHeight } from "./Test/TestDivHeight";
 
-export function App() {
+export const App = () =>  {
   return (
-    <div>
-      <NxWelcome title="myreactapp" />
+    <div className="container mx-auto my-4">
+      <h1>Hello World</h1>
+      <TestDivHeight />
     </div>
   );
 }
 
-export default App;

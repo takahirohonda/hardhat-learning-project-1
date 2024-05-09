@@ -12,11 +12,6 @@
     "hardhat:node": "yarn nx run crypto-zombies:hardhat:node",
     "deploy": "yarn hardhat run apps/crypto-zombies/scripts/deployUsingAppStorage.ts --network localhost --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
     
-    "compile-crypto-zombies": "yarn hardhat compile --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json",
-    "test-crypto-zombies": "yarn hardhat test --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json",
-    "start-local-network-crypto-zombies": "yarn hardhat node --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json",
-    "test-file": "yarn hardhat test --grep Hero --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/crypto-zombies/tsconfig.json",
-    
     "compile2": "yarn nx run guess-game:compile",
     "test2": "yarn nx run guess-game:test",
     "hardhat:node2": "yarn nx run guess-game:hardhat:node",
@@ -28,9 +23,8 @@
     "deploy3": "yarn nx run ethereum-intro:deploy",
 
     "dev": "yarn webpack-dev-server",
-    "start:react": "nx serve",
-    "build:react": "nx build",
-    "test:react": "nx test",
+    "test:react": "nx run react-app:test",
+    "build:react": "nx run react-app:build",
     "dev:vanilla": "nx run vanilla-js-app:serve:webpack",
     "dev:react": "nx run react-app:serve"
   },
