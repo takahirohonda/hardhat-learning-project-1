@@ -1,11 +1,11 @@
 /* global ethers describe before it */
 /* eslint-disable prefer-const */
 
-const { deployDiamond } = require('../scripts/deploy.js')
+import { assert } from 'chai'
+import { deployDiamond }from '../scripts/deploy'
+import { FacetCutAction } from '../scripts/libraries/diamond'
 
-const { FacetCutAction } = require('../scripts/libraries/diamond.js')
 
-const { assert } = require('chai')
 
 // The diamond example comes with 8 function selectors
 // [cut, loupe, loupe, loupe, loupe, erc165, transferOwnership, owner]

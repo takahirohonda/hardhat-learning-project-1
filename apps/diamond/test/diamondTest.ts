@@ -1,15 +1,15 @@
 /* global describe it before ethers */
 
-const {
+import  {
   getSelectors,
   FacetCutAction,
   removeSelectors,
   findAddressPositionInFacets
-} = require('../scripts/libraries/diamond.js')
+} from '../scripts/libraries/diamond'
 
-const { deployDiamond } = require('../scripts/deploy.js')
+import { deployDiamond } from '../scripts/deploy'
 
-const { assert } = require('chai')
+import { assert } from 'chai'
 
 describe('DiamondTest', async function () {
   let diamondAddress

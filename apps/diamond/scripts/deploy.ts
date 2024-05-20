@@ -1,7 +1,7 @@
 /* global ethers */
 /* eslint prefer-const: "off" */
+import { getSelectors, FacetCutAction } from './libraries/diamond'
 
-const { getSelectors, FacetCutAction } = require('./libraries/diamond.js')
 
 async function deployDiamond () {
   const accounts = await ethers.getSigners()
