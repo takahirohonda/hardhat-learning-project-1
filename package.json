@@ -11,17 +11,14 @@
     "test": "yarn nx run crypto-zombies:test",
     "hardhat:node": "yarn nx run crypto-zombies:hardhat:node",
     "deploy": "yarn hardhat run apps/crypto-zombies/scripts/deployUsingAppStorage.ts --network localhost --config apps/crypto-zombies/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json",
-    
     "compile2": "yarn nx run guess-game:compile",
     "test2": "yarn nx run guess-game:test",
     "hardhat:node2": "yarn nx run guess-game:hardhat:node",
     "deploy2": "yarn nx run guess-game:deploy",
-    
     "compile3": "yarn nx run ethereum-intro:compile",
     "test3": "yarn nx run ethereum-intro:test",
     "hardhat:node3": "yarn nx run ethereum-intro:hardhat:node",
     "deploy3": "yarn nx run ethereum-intro:deploy",
-
     "dev": "yarn webpack-dev-server",
     "test:react": "nx run react-app:test",
     "build:react": "nx run react-app:build",
@@ -80,7 +77,8 @@
     "jsdom": "~22.1.0",
     "nx": "18.3.0",
     "postcss": "8.4.21",
-    "prettier": "^2.6.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-solidity": "^1.3.1",
     "solidity-coverage": "^0.8.0",
     "tailwindcss": "3.2.7",
     "ts-loader": "^9.5.1",

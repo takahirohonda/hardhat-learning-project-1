@@ -1,0 +1,32 @@
+{
+  "name": "diamond",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "",
+  "targets": {
+    "compile": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat compile --config apps/diamond/hardhat.config.ts --tsconfig apps/diamond/tsconfig.json"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat run apps/diamond/scripts/deploy.ts --network localhost --config apps/diamond/hardhat.config.ts --tsconfig apps/diamond/tsconfig.json"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat test --config apps/diamond/hardhat.config.ts --tsconfig apps/diamond/tsconfig.json"
+      }
+    },
+    "hardhat:node": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn hardhat node --config apps/diamond/hardhat.config.ts --tsconfig apps/diamond/tsconfig.json"
+      }
+    }
+  }
+}
