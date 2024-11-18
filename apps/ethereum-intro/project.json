@@ -19,7 +19,7 @@
     "deploy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "yarn hardhat run apps/ethereum-intro/scripts/deployUsingAppStorage.ts --network localhost --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json"
+        "command": "yarn hardhat run apps/ethereum-intro/scripts/deployCounter.ts --network localhost --config apps/ethereum-intro/hardhat.config.ts --tsconfig apps/ethereum-intro/tsconfig.json"
       }
     },
     "test-by-grep": {
