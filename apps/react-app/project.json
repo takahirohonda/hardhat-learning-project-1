@@ -4,5 +4,18 @@
   "sourceRoot": "./src",
   "projectType": "application",
   "tags": [],
-  "targets": {}
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn nx serve react-app"
+      }
+    },
+    "lint:fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn nx run react-app:lint --fix"
+      }
+    }
+  }
 }
