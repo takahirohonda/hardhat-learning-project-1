@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSyncProviders } from './useSyncProviders'
 
-export const EIP6963Test = () => {
+export const AutoWalletDetection = () => {
   const [selectedWallet, setSelectedWallet] = useState<
     EIP6963ProviderDetail | undefined
   >()
